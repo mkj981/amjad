@@ -1,0 +1,556 @@
+:root {
+    --background: #f4efe7;
+    --paper: #fbf7f0;
+    --burgundy: #641f2a;
+    --burgundy-dark: #3d1119;
+    --wine: #7b2635;
+    --gold: #b08a52;
+    --gold-light: #d5bc91;
+    --text: #352b28;
+    --muted: #766963;
+    --white: #ffffff;
+    --shadow: 0 30px 80px rgba(61, 17, 25, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text);
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(176, 138, 82, 0.11),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(100, 31, 42, 0.1),
+            transparent 30%
+        ),
+        var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.thank-you-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 24px;
+}
+
+.thank-you-layout {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.75fr);
+    align-items: center;
+    gap: 80px;
+}
+
+.thank-you-intro {
+    max-width: 570px;
+}
+
+.eyebrow {
+    margin: 0 0 20px;
+    color: var(--gold);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+.thank-you-intro h1 {
+    margin: 0;
+    color: var(--burgundy-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(54px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 0.96;
+}
+
+.thank-you-intro h1 span {
+    display: block;
+    margin-top: 14px;
+    color: var(--burgundy);
+    font-size: 0.66em;
+    font-style: italic;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.thank-you-message {
+    max-width: 540px;
+    margin: 34px 0 0;
+    color: var(--muted);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+.thank-you-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 38px;
+}
+
+.button {
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 25px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-decoration: none;
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button--primary {
+    border-color: var(--burgundy);
+    color: var(--white);
+    background: var(--burgundy);
+}
+
+.button--primary:hover {
+    background: var(--burgundy-dark);
+}
+
+.button--primary:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+}
+
+.button--secondary {
+    border-color: rgba(100, 31, 42, 0.35);
+    color: var(--burgundy);
+    background: transparent;
+}
+
+.button--secondary:hover {
+    border-color: var(--burgundy);
+    background: rgba(100, 31, 42, 0.05);
+}
+
+.download-status {
+    min-height: 24px;
+    margin: 18px 0 0;
+    color: var(--burgundy);
+    font-size: 14px;
+}
+
+.card-wrapper {
+    width: 100%;
+    max-width: 500px;
+    justify-self: end;
+}
+
+.thank-you-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 36px;
+    color: var(--burgundy-dark);
+    background:
+        linear-gradient(
+            rgba(251, 247, 240, 0.95),
+            rgba(251, 247, 240, 0.95)
+        ),
+        radial-gradient(
+            circle at center,
+            var(--white),
+            var(--paper)
+        );
+    box-shadow: var(--shadow);
+}
+
+.thank-you-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: 0.42;
+    background-image:
+        linear-gradient(
+            rgba(176, 138, 82, 0.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(176, 138, 82, 0.04) 1px,
+            transparent 1px
+        );
+    background-size: 24px 24px;
+}
+
+.card-border {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid var(--gold);
+    pointer-events: none;
+}
+
+.card-border::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid rgba(176, 138, 82, 0.35);
+}
+
+.card-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 30px;
+    text-align: center;
+}
+
+.card-label {
+    margin: 0 0 20px;
+    color: var(--gold);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.card-monogram {
+    color: var(--burgundy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 54px;
+    line-height: 1;
+}
+
+.card-monogram span {
+    display: inline-block;
+    margin: 0 4px;
+    color: var(--gold);
+    font-size: 22px;
+    font-style: italic;
+    transform: translateY(-7px);
+}
+
+.card-small-title {
+    margin: 12px 0 20px;
+    color: var(--burgundy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 0.06em;
+}
+
+.card-divider {
+    width: 190px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    color: var(--gold);
+}
+
+.card-divider span {
+    height: 1px;
+    flex: 1;
+    background: var(--gold-light);
+}
+
+.card-divider i {
+    font-size: 8px;
+    font-style: normal;
+}
+
+.card-thank-you {
+    margin: 0;
+    color: var(--gold);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.card-content h2 {
+    max-width: 100%;
+    margin: 12px 0 18px;
+    color: var(--burgundy);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+}
+
+.card-message {
+    max-width: 310px;
+    margin: 0;
+    color: var(--muted);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.card-date {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 26px;
+    color: var(--burgundy-dark);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.card-date span {
+    max-width: 75px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.card-date strong {
+    padding: 0 17px;
+    border-right: 1px solid var(--gold-light);
+    border-left: 1px solid var(--gold-light);
+    color: var(--burgundy);
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.card-venue {
+    margin: 16px 0 0;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.floral-corner {
+    position: absolute;
+    z-index: 2;
+    width: 160px;
+    height: 160px;
+    pointer-events: none;
+}
+
+.floral-corner::before,
+.floral-corner::after,
+.floral-corner span {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 60% 10% 60% 10%;
+    background:
+        linear-gradient(
+            135deg,
+            var(--burgundy),
+            var(--wine)
+        );
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+
+.floral-corner--top-left {
+    top: -30px;
+    left: -35px;
+    transform: rotate(-20deg);
+}
+
+.floral-corner--bottom-right {
+    right: -35px;
+    bottom: -30px;
+    transform: rotate(160deg);
+}
+
+.floral-corner::before {
+    top: 30px;
+    left: 50px;
+    width: 60px;
+    height: 105px;
+}
+
+.floral-corner::after {
+    top: 58px;
+    left: 22px;
+    width: 54px;
+    height: 90px;
+    transform: rotate(-42deg);
+}
+
+.floral-corner span:nth-child(1) {
+    top: 38px;
+    left: 90px;
+    width: 48px;
+    height: 82px;
+    transform: rotate(44deg);
+}
+
+.floral-corner span:nth-child(2) {
+    top: 8px;
+    left: 72px;
+    width: 40px;
+    height: 72px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+    transform: rotate(20deg);
+}
+
+.floral-corner span:nth-child(3) {
+    top: 88px;
+    left: 74px;
+    width: 38px;
+    height: 66px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+    transform: rotate(-18deg);
+}
+
+.music-toggle {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    z-index: 20;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(176, 138, 82, 0.55);
+    border-radius: 50%;
+    color: var(--white);
+    background: var(--burgundy);
+    box-shadow: 0 10px 30px rgba(61, 17, 25, 0.2);
+}
+
+.music-toggle__playing {
+    font-size: 21px;
+}
+
+.music-toggle__muted {
+    display: none;
+    font-size: 22px;
+}
+
+.music-toggle.is-muted .music-toggle__playing {
+    display: none;
+}
+
+.music-toggle.is-muted .music-toggle__muted {
+    display: inline;
+}
+
+@media (max-width: 950px) {
+    .thank-you-layout {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .thank-you-intro {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .thank-you-message {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .thank-you-actions {
+        justify-content: center;
+    }
+
+    .card-wrapper {
+        justify-self: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .thank-you-page {
+        padding: 80px 16px 36px;
+    }
+
+    .thank-you-intro h1 {
+        font-size: 52px;
+    }
+
+    .thank-you-message {
+        font-size: 17px;
+    }
+
+    .thank-you-actions {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .thank-you-card {
+        padding: 25px;
+    }
+
+    .card-border {
+        inset: 13px;
+    }
+
+    .card-content {
+        padding: 30px 18px;
+    }
+
+    .card-content h2 {
+        font-size: 34px;
+    }
+
+    .card-monogram {
+        font-size: 43px;
+    }
+
+    .music-toggle {
+        top: 16px;
+        right: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
