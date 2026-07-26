@@ -12,3 +12,8 @@ Route::get(
     '/rsvp/thank-you/{weddingRsvp}',
     [WeddingRsvpController::class, 'thankYou']
 )->name('wedding.rsvp.thank-you');
+
+Route::get(
+    '/admin/rsvps',
+    [WeddingRsvpController::class, 'index']
+)->name('wedding.rsvp.index');
